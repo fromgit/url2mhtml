@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "url2mhtml"
+
+url=ARGV[0]
+STDOUT.binmode.write(Url2mhtml.capture(url))

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>capture (Url2mhtml)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/url2mhtml.rb, line 99</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">capture</span>(<span class="ruby-identifier">uri</span>)
+    <span class="ruby-identifier">page_content_list</span>=<span class="ruby-identifier">get_contents</span>(<span class="ruby-identifier">uri</span>,<span class="ruby-keyword kw">true</span>,[])
+    <span class="ruby-identifier">title</span>=<span class="ruby-identifier">page_content_list</span>.<span class="ruby-identifier">find</span>(<span class="ruby-constant">ContentInfo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>,<span class="ruby-keyword kw">nil</span>,<span class="ruby-keyword kw">nil</span>,<span class="ruby-keyword kw">nil</span>,<span class="ruby-value str">'no title'</span>)) { <span class="ruby-operator">|</span><span class="ruby-identifier">content</span><span class="ruby-operator">|</span> <span class="ruby-identifier">content</span>.<span class="ruby-identifier">is_root</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">true</span> }.<span class="ruby-identifier">title</span>
+    <span class="ruby-identifier">mail_parts</span>=<span class="ruby-identifier">page_content_list</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">content</span><span class="ruby-operator">|</span> <span class="ruby-identifier">create_mail_part</span>(<span class="ruby-identifier">content</span>)}
+    <span class="ruby-identifier">mail</span>=<span class="ruby-identifier">create_mail</span>(<span class="ruby-identifier">title</span>,<span class="ruby-identifier">mail_parts</span>)
+    <span class="ruby-identifier">mail</span>.<span class="ruby-identifier">encoded</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>create_mail (Url2mhtml)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/url2mhtml.rb, line 83</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create_mail</span>(<span class="ruby-identifier">title</span>,<span class="ruby-identifier">parts</span>)
+    <span class="ruby-identifier">mail</span>=<span class="ruby-constant">TMail</span><span class="ruby-operator">::</span><span class="ruby-constant">Mail</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">mail</span>.<span class="ruby-identifier">from</span>=<span class="ruby-value str">'url2MHTML'</span>
+    <span class="ruby-identifier">mail</span>.<span class="ruby-identifier">subject</span> = <span class="ruby-identifier">title</span>
+    <span class="ruby-identifier">mail</span>.<span class="ruby-identifier">date</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+    <span class="ruby-identifier">mail</span>.<span class="ruby-identifier">mime_version</span> = <span class="ruby-value str">'1.0'</span>
+    <span class="ruby-identifier">mail</span>[<span class="ruby-value str">'X-MimeOLE'</span>]=<span class="ruby-value str">'url2MHTML'</span>
+
+    <span class="ruby-identifier">mail</span>.<span class="ruby-identifier">body</span> = <span class="ruby-value str">&quot;This is a multi-part message in MIME format.\n&quot;</span>
+
+    <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span> <span class="ruby-identifier">mail</span>.<span class="ruby-identifier">parts</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">part</span>) }
+   
+    <span class="ruby-identifier">mail</span>.<span class="ruby-identifier">content_type</span>=<span class="ruby-value str">'multipart/related; type=&quot;text/html&quot;'</span>
+    <span class="ruby-identifier">mail</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

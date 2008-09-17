@@ -3,7 +3,7 @@ require 'mechanize'
 require 'tmail'
 
 class Url2mhtml
-  VERSION = '0.0.2'
+  VERSION = '0.0.3'
   ContentInfo=Struct.new(:uri,:type,:body,:is_root,:title)
 
   def self.get_agent

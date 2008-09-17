@@ -4,4 +4,6 @@
 == 0.0.2 / 2008-09-15
 
 * fix dependency gems
+== 0.0.3 / 2008-09-18
 
+* fix gemspec

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{url2mhtml}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
   s.authors = ["forgithubid"]
   s.date = %q{2008-09-17}
   s.default_executable = %q{url2mhtml}
